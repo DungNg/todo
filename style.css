@@ -1,0 +1,295 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* END RESET CSS */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+.container {
+    font-family: 'Roboto', sans-serif;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    background-color: black;
+}
+
+.card {
+    --card-height: 535px;
+    --card-width: 400px;
+    --card-padding: 1rem;
+    --margin-bottom: 1rem;
+    --card-header-font-size: 2.5rem;
+    --app-font-size: 16px;
+    --input-height: 35px;
+    --footer-height: 45px;
+
+    width: var(--card-width);
+    height: var(--card-height);
+    background-color: white;
+    border-radius: .2rem;
+    padding: var(--card-padding);
+}
+
+.card-header {
+    font-size: var(--card-header-font-size);
+    font-weight: bold;
+    margin-bottom: var(--margin-bottom);
+    color: blue;
+}
+
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--margin-bottom);
+}
+
+.input-container>.task-input {
+    width: 75%;
+    height: var(--input-height);
+    border-radius: .2rem;
+    border: .1rem solid blue;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.input-container>.task-input:focus {
+    outline-color: blue;
+}
+
+.input-container>.btn {
+    width: 15%;
+    background-color: blue;
+    color: white;
+    border-radius: .2rem;
+    border: none;
+    cursor: pointer;
+}
+
+.card-content {
+    overflow: hidden;
+    min-height:
+        calc(var(--card-height) - var(--card-header-font-size) - var(--input-height) - var(--footer-height) - var(--margin-bottom) * 2);
+}
+
+.card-content>.card-content-item {
+    border: .1rem solid blue;
+    padding: .5rem;
+    margin-bottom: .5rem;
+    border-radius: .2rem;
+    display: flex;
+    justify-content: space-between;
+    gap: .5rem;
+}
+
+.card-content-item>.content-container {
+    display: flex;
+    gap: .5rem;
+    overflow: hidden;
+}
+
+.card-content-item>.content-container>.index {
+    font-weight: bold;
+}
+
+.card-content-item>.content-container>.content {}
+
+.card-content-item>.btnContainer {
+    display: flex;
+    gap: .5rem;
+}
+
+.card-content-item>.btnContainer>.btn {
+    border-radius: .2rem;
+    border: none;
+    cursor: pointer;
+    height: 20px;
+}
+
+.card-content-item>.btnContainer>.btnDetail {
+    background-color: green;
+    color: white;
+}
+
+.card-content-item>.btnContainer>.btnDelete {
+    background-color: red;
+    color: white;
+}
+
+.card-footer {
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-footer>.pagination {
+    height: 100%;
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+}
+
+.card-footer>.pagination>.btn {
+    height: 35px;
+    width: 35px;
+    background-color: blue;
+    color: white;
+    border-radius: .2rem;
+    cursor: pointer;
+    border: none;
+}
+
+.card-footer>.pagination>.active {
+    background-color: red;
+}
+
+.empty-list {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-size: small;
+}
+
+.empty-list-hidden {
+    display: none;
+}
+
+.note-count{
+    font-weight: bold;
+    font-size: smaller;
+}
