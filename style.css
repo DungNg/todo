@@ -165,20 +165,20 @@ table {
     padding: var(--card-padding);
 }
 
-.card-header {
+.card__header {
     font-size: var(--card-header-font-size);
     font-weight: bold;
     margin-bottom: var(--margin-bottom);
     color: blue;
 }
 
-.input-container {
+.card__input-container {
     display: flex;
     justify-content: space-between;
     margin-bottom: var(--margin-bottom);
 }
 
-.input-container>.task-input {
+.card__input-container__input {
     width: 75%;
     height: var(--input-height);
     border-radius: .2rem;
@@ -187,11 +187,11 @@ table {
     padding-right: 1rem;
 }
 
-.input-container>.task-input:focus {
+.card__input-container__input:focus {
     outline-color: blue;
 }
 
-.input-container>.btn {
+.card__input-container__button-add {
     width: 15%;
     background-color: blue;
     color: white;
@@ -200,13 +200,25 @@ table {
     cursor: pointer;
 }
 
-.card-content {
+.card__content {
     overflow: hidden;
     min-height:
         calc(var(--card-height) - var(--card-header-font-size) - var(--input-height) - var(--footer-height) - var(--margin-bottom) * 2);
 }
 
-.card-content>.card-content-item {
+
+.card__content__empty-list {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-size: small;
+}
+
+.card__content__empty-list-hidden {
+    display: none;
+}
+
+.card__content__item {
     border: .1rem solid blue;
     padding: .5rem;
     margin-bottom: .5rem;
@@ -216,55 +228,55 @@ table {
     gap: .5rem;
 }
 
-.card-content-item>.content-container {
+.card__content__item__content-container {
     display: flex;
     gap: .5rem;
     overflow: hidden;
 }
 
-.card-content-item>.content-container>.index {
+.card__content__item__content-container__index {
     font-weight: bold;
 }
 
-.card-content-item>.content-container>.content {}
+.card__content__item__content-container__content {}
 
-.card-content-item>.btnContainer {
+.card__content__item_button-container {
     display: flex;
     gap: .5rem;
 }
 
-.card-content-item>.btnContainer>.btn {
+.card__content__item_button-container__button {
     border-radius: .2rem;
     border: none;
     cursor: pointer;
     height: 20px;
 }
 
-.card-content-item>.btnContainer>.btnDetail {
+.card__content__item_button-container__button--detail {
     background-color: green;
     color: white;
 }
 
-.card-content-item>.btnContainer>.btnDelete {
+.card__content__item_button-container__button--delete {
     background-color: red;
     color: white;
 }
 
-.card-footer {
+.card__footer {
     height: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.card-footer>.pagination {
+.card__footer__pagination {
     height: 100%;
     display: flex;
     gap: .5rem;
     flex-wrap: wrap;
 }
 
-.card-footer>.pagination>.btn {
+.card__footer__pagination__button {
     height: 35px;
     width: 35px;
     background-color: blue;
@@ -274,22 +286,11 @@ table {
     border: none;
 }
 
-.card-footer>.pagination>.active {
+.card__footer__pagination>.active {
     background-color: red;
 }
 
-.empty-list {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    font-size: small;
-}
-
-.empty-list-hidden {
-    display: none;
-}
-
-.note-count{
+.card__footer__note-count{
     font-weight: bold;
     font-size: smaller;
 }

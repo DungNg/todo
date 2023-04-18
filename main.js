@@ -1,10 +1,9 @@
-let cardContent = document.querySelector(".card-content");
-let inputContainer = document.querySelector(".input-container");
-let input = inputContainer.getElementsByTagName("input")[0];
-let btnAdd = inputContainer.getElementsByTagName("button")[0];
-let pagination = document.querySelector(".pagination");
-let emptyListMessage = document.querySelector(".empty-list");
-let noteCount = document.querySelector(".note-count");
+let cardContent = document.querySelector(".card__content");
+let input = document.querySelector(".card__input-container__input");
+let btnAdd = document.querySelector(".card__input-container__button-add");
+let pagination = document.querySelector(".card__footer__pagination");
+let emptyListMessage = document.querySelector(".card__content__empty-list");
+let noteCount = document.querySelector(".card__footer__note-count");
 
 const SAVEDNOTES = "savedNotes";
 let notes = new Array();
@@ -36,26 +35,32 @@ let addItemToView = (_index, _content) => {
   let btnDetail = document.createElement("button");
   let btnDelete = document.createElement("button");
 
-  cardContentItem.classList.add("card-content-item");
-  contentContainer.classList.add("content-container");
+  cardContentItem.classList.add("card__content__item");
+  contentContainer.classList.add("card__content__item__content-container");
 
   index.innerHTML = _index;
-  index.classList.add("index");
+  index.classList.add("card__content__item__content-container__index");
 
   content.innerHTML = _content;
-  content.classList.add("content");
+  content.classList.add("card__content__item__content-container__content");
 
   contentContainer.append(index);
   contentContainer.append(content);
 
-  btnContainer.classList.add("btnContainer");
-  btnDetail.classList.add("btnDetail", "btn");
-  btnDelete.classList.add("btnDelete", "btn");
+  btnContainer.classList.add("card__content__item_button-container");
+  btnDetail.classList.add(
+    "card__content__item_button-container__button--detail",
+    "card__content__item_button-container__button"
+  );
+  btnDelete.classList.add(
+    "card__content__item_button-container__button--delete",
+    "card__content__item_button-container__button"
+  );
 
   btnDetail.innerHTML = "Detail";
-  btnDelete.innerHTML = "Delete";
+  btnDelete.innerHTML = "Remove";
 
-  btnContainer.append(btnDetail);
+  // btnContainer.append(btnDetail);
   btnContainer.append(btnDelete);
 
   cardContentItem.append(contentContainer);
@@ -78,7 +83,6 @@ let renderNotes = (_currentPage) => {
   checkEmptyAndShowMessage();
 
   noteCount.innerHTML = notes.length > 0 ? `Count: ${notes.length}` : "";
-  console.log(notes.length);
   if (notes.length === 0) {
     return;
   }
@@ -95,8 +99,8 @@ let renderNotes = (_currentPage) => {
 };
 
 btnAdd.addEventListener("click", () => {
-  if(!input.value){
-    alert("You must enter task title to add new note!");
+  if (!input.value) {
+    alert("You must enter task title to add new task!");
     return;
   }
   addItem(input.value);
@@ -118,7 +122,7 @@ let paginationCalculation = () => {
   pagination.replaceChildren();
   let page = Math.ceil(notes.length / pageSize);
   let btnPrev = document.createElement("button");
-  btnPrev.classList.add("btn");
+  btnPrev.classList.add("card__footer__pagination__button");
   btnPrev.innerHTML = "<";
   btnPrev.addEventListener("click", () => {
     if (currentPage === 1) {
@@ -155,7 +159,7 @@ let paginationCalculation = () => {
       break;
     }
     let btn = document.createElement("button");
-    btn.classList.add("btn");
+    btn.classList.add("card__footer__pagination__button");
     if (currentPage === index) {
       btn.classList.add("active");
     }
@@ -168,7 +172,7 @@ let paginationCalculation = () => {
   }
 
   let btnNext = document.createElement("button");
-  btnNext.classList.add("btn");
+  btnNext.classList.add("card__footer__pagination__button");
   btnNext.innerHTML = ">";
   btnNext.addEventListener("click", () => {
     if (currentPage === page) {
@@ -184,11 +188,11 @@ let paginationCalculation = () => {
 
 let checkEmptyAndShowMessage = () => {
   if (notes.length > 0) {
-    emptyListMessage.classList.add("empty-list-hidden");
+    emptyListMessage.classList.add("card__content__empty-list-hidden");
     return;
   }
   cardContent.append(emptyListMessage);
-  emptyListMessage.classList.remove("empty-list-hidden");
+  emptyListMessage.classList.remove("card__content__empty-list-hidden");
 };
 
 let loadSaveItems = () => {
