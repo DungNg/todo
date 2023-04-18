@@ -204,6 +204,8 @@ table {
     overflow: hidden;
     min-height:
         calc(var(--card-height) - var(--card-header-font-size) - var(--input-height) - var(--footer-height) - var(--margin-bottom) * 2);
+    max-height:
+        calc(var(--card-height) - var(--card-header-font-size) - var(--input-height) - var(--footer-height) - var(--margin-bottom) * 2);
 }
 
 
@@ -238,7 +240,13 @@ table {
     font-weight: bold;
 }
 
-.card__content__item__content-container__content {}
+.card__content__item__content-container__content {
+    display: inline-block;
+    width: calc(var(--card-width) - 1rem - .5rem);
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+}
 
 .card__content__item_button-container {
     display: flex;
@@ -290,7 +298,7 @@ table {
     background-color: red;
 }
 
-.card__footer__note-count{
+.card__footer__note-count {
     font-weight: bold;
     font-size: smaller;
 }
